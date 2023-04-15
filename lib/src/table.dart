@@ -1,16 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqlutter/sqlutter.dart';
-import 'package:sqlutter/src/storage.dart';
 
 abstract class DBTable {
   DBTable();
 
   abstract final String tableName;
 
-  int id = 0;
-  DateTime dateCreated = DateTime.now().toUtc();
-  DateTime dateModified = DateTime.now().toUtc();
+  IntStorage id = IntStorage(value: 0, name: 'id', nullable: false);
+  DateTimeStorage dateCreated = DateTimeStorage(
+    value: DateTime.now().toUtc(),
+    name: 'date_created',
+    nullable: false,
+  );
+  DateTimeStorage dateModified = DateTimeStorage(
+    value: DateTime.now().toUtc(),
+    name: 'date_modified',
+    nullable: false,
+  );
 
   abstract final List<Storage> columns;
 
@@ -204,7 +211,7 @@ abstract class DBTable {
   }
 
   Future<void> deleteSelf() async {
-    await delete([id]);
+    await delete([id.value!]);
   }
 
   Future<void> deleteAll() async {
@@ -240,7 +247,7 @@ abstract class DBTable {
 
   /// Resets info by reloading from db.
   Future<void> reset() async {
-    await load(id);
+    await load(id.value!);
   }
 
   void dispose() {
