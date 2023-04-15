@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "sqflite",
+        "sqlutter"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+    },
+}
