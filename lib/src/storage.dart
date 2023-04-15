@@ -166,6 +166,31 @@ class BlobStorage<T extends Uint8List?> extends Storage<T> {
   String name;
 }
 
+class DoubleStorage<T extends double?> extends Storage<T> {
+  @override
+  final String storageName = 'REAL';
+
+  DoubleStorage(
+    super.value, {
+    required this.name,
+    super.nullable,
+  });
+
+  @override
+  String name;
+
+  @override
+  set sqlValue(dynamic v) {
+    if (v == null) {
+      value = v;
+    } else if (v is num) {
+      value = v.toDouble() as T;
+    } else {
+      throw UnimplementedError('Unexpected type: ${v.runtimeType}');
+    }
+  }
+}
+
 class DateTimeStorage<T extends DateTime?> extends Storage<T> {
   @override
   final String storageName = 'TEXT';
