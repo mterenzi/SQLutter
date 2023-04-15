@@ -10,6 +10,7 @@ export 'src/storage.dart' show RealStorage;
 export 'src/storage.dart' show TextStorage;
 export 'src/storage.dart' show BlobStorage;
 export 'src/storage.dart' show BoolStorage;
+export 'src/storage.dart' show DoubleStorage;
 export 'src/storage.dart' show DateTimeStorage;
 export 'src/storage.dart' show TimeOfDayStorage;
 export 'src/storage.dart' show JSONStorage;

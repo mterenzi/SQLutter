@@ -8,8 +8,8 @@ abstract class Storage<T> {
   abstract final String storageName;
   abstract String name;
 
-  Storage(
-    T value, {
+  Storage({
+    T? value,
     bool notifyChanges = false,
     this.nullable = true,
   }) : _notifyChanges = notifyChanges {
@@ -19,7 +19,7 @@ abstract class Storage<T> {
       );
     }
 
-    _value = value;
+    _value = value!;
     if (_notifyChanges) initNotifier();
   }
 
@@ -99,8 +99,8 @@ class IntStorage<T extends int?> extends Storage<T> {
   @override
   final String storageName = 'INTEGER';
 
-  IntStorage(
-    super.value, {
+  IntStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -113,8 +113,8 @@ class RealStorage<T extends num?> extends Storage<T> {
   @override
   final String storageName = 'REAL';
 
-  RealStorage(
-    super.value, {
+  RealStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -127,8 +127,8 @@ class TextStorage<T extends String?> extends Storage<T> {
   @override
   final String storageName = 'TEXT';
 
-  TextStorage(
-    super.value, {
+  TextStorage({
+    super.value,
     required this.name,
     super.nullable,
     this.charLimit,
@@ -156,8 +156,8 @@ class BlobStorage<T extends Uint8List?> extends Storage<T> {
   @override
   final String storageName = 'BLOB';
 
-  BlobStorage(
-    super.value, {
+  BlobStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -170,8 +170,8 @@ class DoubleStorage<T extends double?> extends Storage<T> {
   @override
   final String storageName = 'REAL';
 
-  DoubleStorage(
-    super.value, {
+  DoubleStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -195,8 +195,8 @@ class DateTimeStorage<T extends DateTime?> extends Storage<T> {
   @override
   final String storageName = 'TEXT';
 
-  DateTimeStorage(
-    super.value, {
+  DateTimeStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -225,8 +225,8 @@ class TimeOfDayStorage<T extends TimeOfDay?> extends Storage<T> {
   @override
   final String storageName = 'TEXT';
 
-  TimeOfDayStorage(
-    super.value, {
+  TimeOfDayStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -267,8 +267,8 @@ class BoolStorage<T extends bool?> extends Storage<T> {
   @override
   final String storageName = 'INTEGER';
 
-  BoolStorage(
-    super.value, {
+  BoolStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
@@ -301,8 +301,8 @@ class JSONStorage<T extends Object?> extends Storage<T> {
   @override
   final String storageName = 'TEXT';
 
-  JSONStorage(
-    super.value, {
+  JSONStorage({
+    super.value,
     required this.name,
     super.nullable,
   });
