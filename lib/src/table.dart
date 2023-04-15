@@ -6,13 +6,13 @@ import 'package:sqlutter/src/storage.dart';
 abstract class Table {
   Table();
 
-  abstract String tableName;
+  abstract final String tableName;
 
   int id = 0;
   DateTime dateCreated = DateTime.now().toUtc();
   DateTime dateModified = DateTime.now().toUtc();
 
-  abstract List<Storage> columns;
+  abstract final List<Storage> columns;
 
   bool trackDateCreated = true;
   bool trackDateModified = true;

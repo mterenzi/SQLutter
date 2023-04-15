@@ -263,11 +263,11 @@ class TimeOfDayStorage<T extends TimeOfDay?> extends Storage<T> {
   }
 }
 
-class BooleanStorage<T extends bool?> extends Storage<T> {
+class BoolStorage<T extends bool?> extends Storage<T> {
   @override
   final String storageName = 'INTEGER';
 
-  BooleanStorage(
+  BoolStorage(
     super.value, {
     required this.name,
     super.nullable,
