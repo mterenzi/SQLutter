@@ -3,8 +3,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqlutter/sqlutter.dart';
 import 'package:sqlutter/src/storage.dart';
 
-abstract class Table {
-  Table();
+abstract class DBTable {
+  DBTable();
 
   abstract final String tableName;
 

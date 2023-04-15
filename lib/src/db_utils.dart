@@ -9,7 +9,7 @@ import 'package:sqlutter/src/table.dart';
 
 class DBUtils {
   static Database? _db;
-  static List<Table> tables = [];
+  static List<DBTable> tables = [];
 
   static Future<Database> get db async {
     return _db ?? await initDB();
@@ -32,7 +32,7 @@ class DBUtils {
 
   static Future<void> createTables() async {
     Database db = await DBUtils.db;
-    for (Table table in tables) {
+    for (DBTable table in tables) {
       await table.createTable(db);
     }
   }
